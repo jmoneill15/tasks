@@ -31,11 +31,9 @@ export function makeBlankQuestion(
  */
 export function isCorrect(question: Question, answer: string): boolean {
     const questionCopy = { ...question };
-    if (
-        questionCopy.expected === answer ||
-        questionCopy.expected === answer.toLowerCase() ||
-        questionCopy.expected === answer.trim()
-    ) {
+    const ans = questionCopy.expected.toLowerCase().trim();
+    const potentialAns = answer.toLowerCase().trim();
+    if (ans === potentialAns) {
         return true;
     } else {
         return false;
