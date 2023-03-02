@@ -10,7 +10,16 @@ export function makeBlankQuestion(
     name: string,
     type: QuestionType
 ): Question {
-    return {};
+    return {
+        id: id,
+        name: name,
+        body: "",
+        type: type,
+        options: [],
+        expected: "",
+        points: 1,
+        published: false
+    };
 }
 
 /**
@@ -21,7 +30,16 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
-    return false;
+    const questionCopy = { ...question };
+    if (
+        questionCopy.expected === answer ||
+        questionCopy.expected === answer.toLowerCase() ||
+        questionCopy.expected === answer.trim()
+    ) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /**
@@ -31,7 +49,16 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
-    return false;
+    const questionCopy = { ...question };
+    if (questionCopy.type === "short_answer_question") {
+        return true;
+    }
+    //else if(){
+
+    //}
+    else {
+        return false;
+    }
 }
 
 /**
@@ -41,7 +68,10 @@ export function isValid(question: Question, answer: string): boolean {
  * name "My First Question" would become "9: My First Q".
  */
 export function toShortForm(question: Question): string {
-    return "";
+    const questionCopy = { ...question };
+    const questionName = question.name;
+    const tenChar = questionName.slice(0, 10);
+    return questionCopy.id + ": " + tenChar;
 }
 
 /**
@@ -62,7 +92,9 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-    return "";
+    const questionCopy = { ...question };
+
+    return;
 }
 
 /**
