@@ -97,8 +97,7 @@ export function toShortForm(question: Question): string {
  */
 export function toMarkdown(question: Question): string {
     const questionCopy = { ...question };
-
-    return;
+    return "";
 }
 
 /**
@@ -106,7 +105,9 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
-    return question;
+    const questionCopy = { ...question };
+    questionCopy.name = newName;
+    return questionCopy;
 }
 
 /**
