@@ -50,13 +50,17 @@ export function isCorrect(question: Question, answer: string): boolean {
  */
 export function isValid(question: Question, answer: string): boolean {
     const questionCopy = { ...question };
+    const isChoice = question.options.findIndex(
+        (choice: string): boolean => choice === answer
+    );
     if (questionCopy.type === "short_answer_question") {
         return true;
-    }
-    //else if(){
-
-    //}
-    else {
+    } else if (
+        questionCopy.type === "multiple_choice_question" &&
+        isChoice !== -1
+    ) {
+        return true;
+    } else {
         return false;
     }
 }
