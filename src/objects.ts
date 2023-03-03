@@ -95,7 +95,24 @@ export function toShortForm(question: Question): string {
  */
 export function toMarkdown(question: Question): string {
     const questionCopy = { ...question };
-    return "";
+    if (questionCopy.type === "multiple_choice_question") {
+        const newOptions = questionCopy.options.map(
+            (option: string): string => "- " + option
+        );
+        const array = [...newOptions];
+        const updatedOptions = array.join("\n");
+        const str =
+            "# " +
+            questionCopy.name +
+            "\n" +
+            questionCopy.body +
+            "\n" +
+            updatedOptions;
+        return str;
+    } else {
+        const str = "# " + questionCopy.name + "\n" + questionCopy.body;
+        return str;
+    }
 }
 
 /**
