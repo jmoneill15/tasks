@@ -213,7 +213,6 @@ export function renameQuestionById(
     );
     const renameQuestion = { ...questions[questionFindIndex], name: newName };
     questionCopy[questionFindIndex] = renameQuestion;
-    console.log(renameQuestion);
     return questionCopy;
 }
 
