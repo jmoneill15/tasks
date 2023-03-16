@@ -10,38 +10,568 @@ PASS src/arrays.test.ts
 PASS src/objects.test.ts
 PASS src/components/StartAttempt.test.tsx
 PASS src/components/TwoDice.test.tsx
-PASS src/HtmlCss.test.tsx
+PASS src/bad-components/ChooseTeam.test.tsx
+FAIL src/bad-components/DoubleHalf.test.tsx
+  ● DoubleHalf Component tests › You can double AND halve the number.
+
+    TestingLibraryElementError: Unable to find an element with the text: 40. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div>[39m
+          [36m<h3>[39m
+            [0mDouble Half[0m
+          [36m</h3>[39m
+          [36m<div>[39m
+            [0mThe current value is: [0m
+            [36m<span>[39m
+              [0m20[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"btn btn-primary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mDouble[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"btn btn-primary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mHalve[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      39 |         expect(screen.queryByText("10")).not.toBeInTheDocument();
+      40 |         double.click();
+    > 41 |         expect(screen.getByText("40")).toBeInTheDocument();
+         |                       ^
+      42 |         expect(screen.queryByText("20")).not.toBeInTheDocument();
+      43 |         halve.click();
+      44 |         expect(screen.getByText("20")).toBeInTheDocument();
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
+      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/bad-components/DoubleHalf.test.tsx:41:23)
+
+FAIL src/HtmlCss.test.tsx
+  ● Some HTML Elements are added. › There is a header
+
+    TestingLibraryElementError: Found multiple elements with the role "heading"
+
+    Here are the matching elements:
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<h1>[39m
+      [0mAbout Me[0m
+    [36m</h1>[39m
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<h3>[39m
+      [0mDouble Half[0m
+    [36m</h3>[39m
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<h3>[39m
+      [0mChoose Team[0m
+    [36m</h3>[39m
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<h3>[39m
+      [0mColored Box[0m
+    [36m</h3>[39m
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<h3>[39m
+      [0mShove Box[0m
+    [36m</h3>[39m
+
+    (If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"App"[39m
+        [36m>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"App-header"[39m
+          [36m>[39m
+            [0mUD CISC275 and Julia ONeill with React Hooks and TypeScript[0m
+          [36m</header>[39m
+          [36m<p>[39m
+            [0mEdit [0m
+            [36m<code>[39m
+              [0msrc/App.tsx[0m
+            [36m</code>[39m
+            [0m and save. This page will automatically reload. Hello World![0m
+          [36m</p>[39m
+          [36m<h1>[39m
+            [0mAbout Me[0m
+          [36m</h1>[39m
+          [36m<p>[39m
+            [0m I am a sophomore Computer Science major here at UD.[0m
+          [36m</p>[39m
+          [36m<img[39m
+            [33malt[39m=[32m"A picture of UD Campus"[39m
+            [33msrc[39m=[32m"https://marvel-b1-cdn.bc0a.com/f00000000164722/www.udel.edu/content/udel/en/udaily/2022/october/campus-safety-action-steps/_jcr_content/udaily_Image.img.jpg/1664969884485.jpg"[39m
+            [33mwidth[39m=[32m"550"[39m
+          [36m/>[39m
+          [36m<p>[39m
+            [0mSome of my interests are:[0m
+          [36m</p>[39m
+          [36m<ul>[39m
+            [36m<li>[39m
+              [0mListening to music [0m
+            [36m</li>[39m
+            [36m<li>[39m
+              [0mPlaying Video games[0m
+            [36m</li>[39m
+            [36m<li>[39m
+              [0mWatching tv[0m
+            [36m</li>[39m
+          [36m</ul>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"btn btn-primary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mLog Hello World[0m
+          [36m</button>[39m
+          [36m<p>[39m
+            [0m [0m
+          [36m</p>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"container"[39m
+            [33mstyle[39m=[32m"background: red;"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"row"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"col"[39m
+              [36m>[39m
+                [0m First Column[0m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"col"[39m
+              [36m>[39m
+                [0m [0m
+                [0mSecond Column [0m
+                [36m<div />[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"row"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"col"[39m
+              [36m/>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"col"[39m
+              [36m/>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div />[39m
+          [36m<hr />[39m
+          [36m<div>[39m
+            [36m<h3>[39m
+              [0mDouble Half[0m
+            [36m</h3>[39m
+            [36m<div>[39m
+              [0mThe current value is: [0m
+              [36m<span>[39m
+                [0m10[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"btn btn-primary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mDouble[0m
+            [36m</button>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"btn btn-primary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mHalve[0m
+            [36m</button>[39m
+          [36m</div>[39m
+          [36m<hr />[39m
+          [36m<div>[39m
+            [36m<h3>[39m
+              [0mChoose Team[0m
+            [36m</h3>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"row"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"col"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"margin-bottom: 4px;"[39m
+                [36m>[39m
+                  [0mAdd[0m
+                  [0m [0m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-primary btn-sm"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mAlan Turing[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"margin-bottom: 4px;"[39m
+                [36m>[39m
+                  [0mAdd[0m
+                  [0m [0m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-primary btn-sm"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mGrace Hopper[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"margin-bottom: 4px;"[39m
+                [36m>[39m
+                  [0mAdd[0m
+                  [0m [0m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-primary btn-sm"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mAda Lovelace[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"margin-bottom: 4px;"[39m
+                [36m>[39m
+                  [0mAdd[0m
+                  [0m [0m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-primary btn-sm"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mCharles Babbage[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"margin-bottom: 4px;"[39m
+                [36m>[39m
+                  [0mAdd[0m
+                  [0m [0m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-primary btn-sm"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mBarbara Liskov[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mstyle[39m=[32m"margin-bottom: 4px;"[39m
+                [36m>[39m
+                  [0mAdd[0m
+                  [0m [0m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-primary btn-sm"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mMargaret Hamilton[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"col"[39m
+              [36m>[39m
+                [36m<strong>[39m
+                  [0mTeam:[0m
+                [36m</strong>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"btn btn-primary"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mClear Team[0m
+                [36m</button>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<hr />[39m
+          [36m<div>[39m
+            [36m<h3>[39m
+              [0mColored Box[0m
+            [36m</h3>[39m
+            [36m<span>[39m
+              [0mThe current color is: [0m
+              [0mred[0m
+            [36m</span>[39m
+            [36m<div>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mNext Color[0m
+              [36m</button>[39m
+              [36m<div[39m
+                [33mdata-testid[39m=[32m"colored-box"[39m
+                [33mstyle[39m=[32m"width: 50px; height: 50px; background-color: red; display: inline-block; vertical-align: bottom; margin-left: 5px;"[39m
+              [36m/>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<hr />[39m
+          [36m<div>[39m
+            [36m<h3>[39m
+              [0mShove Box[0m
+            [36m</h3>[39m
+            [36m<span>[39m
+              [0mThe box is at: [0m
+              [0m10[0m
+            [36m</span>[39m
+            [36m<div>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mShove the Box[0m
+              [36m</button>[39m
+              [36m<div[39m
+                [33mdata-testid[39m=[32m"moveable-box"[39m
+                [33mstyle[39m=[32m"width: 50px; height: 50px; background-color: lightblue; border: 1px solid blue; display: inline-block; vertical-align: bottom; margin-left: 10px;"[39m
+              [36m/>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<hr />[39m
+          [36m<span>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"btn btn-primary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mAdd One[0m
+            [36m</button>[39m
+            [0mto [0m
+            [0m0[0m
+            [0m.[0m
+          [36m</span>[39m
+          [36m<hr />[39m
+          [36m<div>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"btn btn-primary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mReveal Answer[0m
+            [36m</button>[39m
+            [0m [0m
+          [36m</div>[39m
+          [36m<hr />[39m
+          [36m<div>[39m
+            [36m<div>[39m
+              [0m [0m
+              [0mAttempts: [0m
+              [36m<span>[39m
+                [0m4[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<div>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mStart Quiz[0m
+              [36m</button>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mdisabled[39m=[32m""[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mStop Quiz[0m
+              [36m</button>[39m
+            [36m</div>[39m
+            [36m<div>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0m [0m
+                [0mMulligan[0m
+              [36m</button>[39m
+            [36m</div>[39m
+            [0mStart Attempt[0m
+          [36m</div>[39m
+          [36m<hr />[39m
+          [36m<div>[39m
+            [36m<span[39m
+              [33mdata-testid[39m=[32m"left-die"[39m
+            [36m>[39m
+              [0m [0m
+              [0m2[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mdata-testid[39m=[32m"right-die"[39m
+            [36m>[39m
+              [0m [0m
+              [0m3[0m
+            [36m</span>[39m
+            [36m<div>[39m
+              [36m<span>[39m
+                [0mLeft Die: [0m
+                [0m2[0m
+                [0m Right Die: [0m
+                [0m3[0m
+              [36m</span>[39m
+              [36m<div />[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mRoll Left[0m
+              [36m</button>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mRoll Right[0m
+              [36m</button>[39m
+              [36m<div />[39m
+            [36m</div>[39m
+            [0mTwo Dice[0m
+          [36m</div>[39m
+          [36m<hr />[39m
+          [36m<div>[39m
+            [36m<div>[39m
+              [36m<div />[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mChange Type[0m
+              [36m</button>[39m
+              [36m<div />[39m
+              [36m<span>[39m
+                [0m Short Answer [0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [0mChange Type[0m
+          [36m</div>[39m
+          [36m<hr />[39m
+          [36m<div>[39m
+            [36m<div>[39m
+              [36m<span>[39m
+                [0mHoliday: [0m
+                [0m🎉[0m
+              [36m</span>[39m
+              [36m<div />[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mAdvance by Alphabet[0m
+              [36m</button>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mAdvance by Year[0m
+              [36m</button>[39m
+            [36m</div>[39m
+            [0mCycle Holiday[0m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+       7 |     test("There is a header", () => {
+       8 |         render(<App />);
+    >  9 |         const header = screen.getByRole("heading");
+         |                               ^
+      10 |         expect(header).toBeInTheDocument();
+      11 |     });
+      12 |
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at getElementError (node_modules/@testing-library/dom/dist/query-helpers.js:25:35)
+      at getMultipleElementsFoundError (node_modules/@testing-library/dom/dist/query-helpers.js:29:10)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:66:13
+      at getByRole (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/HtmlCss.test.tsx:9:31)
+
 PASS src/functions.test.ts
 PASS src/components/ChangeType.test.tsx
 PASS src/components/CycleHoliday.test.tsx
 PASS src/components/Counter.test.tsx
 PASS src/components/RevealAnswer.test.tsx
+FAIL src/bad-components/ColoredBox.test.tsx
+  ● ColoredBox Component tests › Clicking the button advances the color.
+
+    expect(element).toHaveStyle()
+
+    - Expected
+
+    - backgroundColor: green;
+
+      21 |         });
+      22 |         nextColor.click();
+    > 23 |         expect(screen.getByTestId("colored-box")).toHaveStyle({
+         |                                                   ^
+      24 |             backgroundColor: "green"
+      25 |         });
+      26 |         nextColor.click();
+
+      at Object.<anonymous> (src/bad-components/ColoredBox.test.tsx:23:51)
+
+FAIL src/bad-components/ShoveBox.test.tsx
+  ● ShoveBox Component tests › Clicking the button moves the box.
+
+    expect(element).toHaveStyle()
+
+    - Expected
+
+    - marginLeft: 18px;
+
+      21 |         });
+      22 |         shoveBox.click();
+    > 23 |         expect(screen.getByTestId("moveable-box")).toHaveStyle({
+         |                                                    ^
+      24 |             marginLeft: "18px"
+      25 |         });
+      26 |         shoveBox.click();
+
+      at Object.<anonymous> (src/bad-components/ShoveBox.test.tsx:23:52)
+
 PASS src/text.test.tsx
 PASS src/App.test.tsx
--------------------|---------|----------|---------|---------|-------------------
-File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
--------------------|---------|----------|---------|---------|-------------------
-All files          |     100 |    97.77 |     100 |     100 |                   
- src               |     100 |      100 |     100 |     100 |                   
-  App.tsx          |     100 |      100 |     100 |     100 |                   
-  arrays.ts        |     100 |      100 |     100 |     100 |                   
-  functions.ts     |     100 |      100 |     100 |     100 |                   
-  nested.ts        |     100 |      100 |     100 |     100 |                   
-  objects.ts       |     100 |      100 |     100 |     100 |                   
- src/components    |     100 |     93.1 |     100 |     100 |                   
-  ChangeType.tsx   |     100 |     87.5 |     100 |     100 | 12                
-  Counter.tsx      |     100 |      100 |     100 |     100 |                   
-  CycleHoliday.tsx |     100 |       90 |     100 |     100 | 49                
-  RevealAnswer.tsx |     100 |      100 |     100 |     100 |                   
-  StartAttempt.tsx |     100 |      100 |     100 |     100 |                   
-  TwoDice.tsx      |     100 |      100 |     100 |     100 |                   
- src/interfaces    |       0 |        0 |       0 |       0 |                   
-  answer.ts        |       0 |        0 |       0 |       0 |                   
-  question.ts      |       0 |        0 |       0 |       0 |                   
--------------------|---------|----------|---------|---------|-------------------
+--------------------|---------|----------|---------|---------|-------------------
+File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+--------------------|---------|----------|---------|---------|-------------------
+All files           |     100 |    96.73 |     100 |     100 |                   
+ src                |     100 |      100 |     100 |     100 |                   
+  App.tsx           |     100 |      100 |     100 |     100 |                   
+  arrays.ts         |     100 |      100 |     100 |     100 |                   
+  functions.ts      |     100 |      100 |     100 |     100 |                   
+  nested.ts         |     100 |      100 |     100 |     100 |                   
+  objects.ts        |     100 |      100 |     100 |     100 |                   
+ src/bad-components |     100 |       50 |     100 |     100 |                   
+  ChooseTeam.tsx    |     100 |       50 |     100 |     100 | 17                
+  ColoredBox.tsx    |     100 |      100 |     100 |     100 |                   
+  DoubleHalf.tsx    |     100 |      100 |     100 |     100 |                   
+  ShoveBox.tsx      |     100 |      100 |     100 |     100 |                   
+ src/components     |     100 |     93.1 |     100 |     100 |                   
+  ChangeType.tsx    |     100 |     87.5 |     100 |     100 | 12                
+  Counter.tsx       |     100 |      100 |     100 |     100 |                   
+  CycleHoliday.tsx  |     100 |       90 |     100 |     100 | 49                
+  RevealAnswer.tsx  |     100 |      100 |     100 |     100 |                   
+  StartAttempt.tsx  |     100 |      100 |     100 |     100 |                   
+  TwoDice.tsx       |     100 |      100 |     100 |     100 |                   
+ src/interfaces     |       0 |        0 |       0 |       0 |                   
+  answer.ts         |       0 |        0 |       0 |       0 |                   
+  question.ts       |       0 |        0 |       0 |       0 |                   
+--------------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 13 passed, 13 total
-Tests:       101 passed, 101 total
+Test Suites: 4 failed, 13 passed, 17 total
+Tests:       4 failed, 114 passed, 118 total
 Snapshots:   0 total
-Time:        8.277 s
+Time:        12.647 s
 Ran all test suites.
